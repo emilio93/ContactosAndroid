@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.dvlpxl.contactosdp.R;
 import com.dvlpxl.contactosdp.bd.ContactosDB;
@@ -31,27 +32,25 @@ public class ListaContactos extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_lista_contactos);
-        cargarContactos();
+        cargarContactos(null);
     }
 
-    public void cargarContactos() {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        cargarContactos(null);
+    }
+
+    public void cargarContactos(View view) {
         ContactosDB cbd = null;
         try {
             cbd = new ContactosDB(this);
-            Log.d(TAG, "BD abierta");
         } catch (Exception e) {
             Log.w(TAG, e.getClass().getName() + "No se abrió la base de datos. " + e.getMessage());
         }
         try{
-            cbd.agregarContacto("emilio", "rojas", "emilio93@gmail.com", "22340687", "88545404",
-                    "frente a escuela", "null");
-            Log.d(TAG, "Usuario Agregado");
-
-        } catch (SQLiteConstraintException e) {
-            Log.w(TAG, "No se insertó el usuario. " + e.getMessage());
-        }
-        try{
-            final List<Contacto> contactos = cbd.obtenerContactos();
+            List<Contacto> contactos = cbd.obtenerContactos();
+            ((LinearLayout) findViewById(R.id.contactosLista)).removeAllViews();
             for (int i = 0; i < contactos.size(); i++) {
                 final int j = i;
                 Button btn = new Button(this);
@@ -60,19 +59,20 @@ public class ListaContactos extends Activity {
                 btn.setTextColor(((ColorStateList) getColorStateList(R.color.blanco)));
                 btn.setTextSize(20);
                 final Context th = (Context)this;
+                final Contacto cntc = contactos.get(i);
 
                 btn.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         Intent intent = new Intent(th, VistaContacto.class);
-
-                        intent.putExtra("id", contactos.get(j).getId());
-                        intent.putExtra("nombre", contactos.get(j).getNombre());
-                        intent.putExtra("apellido", contactos.get(j).getApellido());
-                        intent.putExtra("fijo", contactos.get(j).getTelefonoFijo());
-                        intent.putExtra("movil", contactos.get(j).getTelefonoMovil());
-                        intent.putExtra("email", contactos.get(j).getEmail());
-                        intent.putExtra("direccion", contactos.get(j).getDireccion());
-                        intent.putExtra("imagen", contactos.get(j).getImagen());
+                        Log.d(TAG, "id: " + cntc.getId());
+                        intent.putExtra("id", cntc.getId());
+                        intent.putExtra("nombre", cntc.getNombre());
+                        intent.putExtra("apellido", cntc.getApellido());
+                        intent.putExtra("fijo", cntc.getTelefonoFijo());
+                        intent.putExtra("movil", cntc.getTelefonoMovil());
+                        intent.putExtra("email", cntc.getEmail());
+                        intent.putExtra("direccion", cntc.getDireccion());
+                        intent.putExtra("imagen", cntc.getImagen());
 
                         startActivity(intent);
                     }
@@ -83,9 +83,10 @@ public class ListaContactos extends Activity {
                 lyt.addView(btn);
 
                 LinearLayout ll = (LinearLayout) findViewById(R.id.contactosLista);
+
                 ll.addView(lyt);
             }
-            Log.d(TAG, "Usuarios Listados");
+            Toast.makeText(this, "Contactos Actualizados", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Log.w(TAG, e.getClass().getName() + "No se Completo el try" + e.getMessage());
         }

@@ -61,21 +61,16 @@ public class ContactosDB extends SQLiteOpenHelper {
     public void actualizarContacto(int id, String nombre,String apellido, String email,
                                    String telefonoFijo, String telefonoMovil, String direccion,
                                    String imagen) {
-        this.getWritableDatabase().execSQL("UPDATE contactos SET nombre='" + nombre + "', " +
-                "apellido='" + apellido + "', email='" + email + "', telefonoFijo='" + telefonoFijo + "', " +
-                "telefonoMovil='" + telefonoMovil + "', direccion'" + direccion + "', imagen='" + imagen +
+        this.getWritableDatabase().execSQL("UPDATE contactos " +
+                "SET " +
+                "nombre='" + nombre + "'," +
+                "apellido='" + apellido + "'," +
+                "email='" + email + "'," +
+                "telefonoFijo='" + telefonoFijo + "'," +
+                "telefonoMovil='" + telefonoMovil + "'," +
+                "direccion='" + direccion + "'," +
+                "imagen='" + imagen +
                 "' WHERE id=" + id + ";");
-    }
-
-    public int contarContactos() {
-        String sql = "SELECT * FROM contactos";
-        int c = 0;
-        Cursor cursor = this.getReadableDatabase().rawQuery(sql, null);
-        if(cursor != null && !cursor.isClosed()){
-            c = cursor.getCount();
-            cursor.close();
-        }
-        return c;
     }
 
     public List<Contacto> obtenerContactos() {
