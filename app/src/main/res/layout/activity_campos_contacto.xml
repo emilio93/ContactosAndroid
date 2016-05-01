@@ -65,7 +65,9 @@
 
             <!--NOMBRE-->
             <TableRow android:padding="4dp"
-                android:layout_marginRight="4dp">
+                android:layout_marginRight="4dp"
+                android:orientation="vertical"
+                android:id="@+id/nombreContacto">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -81,7 +83,7 @@
                     android:layout_height="match_parent"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/nombreContacto"
+                    android:id="@+id/nombre"
                     android:layout_column="1"
                     android:background="@color/gris60"
                     android:autoText="false" />
@@ -106,7 +108,7 @@
                     android:layout_height="match_parent"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editText"
+                    android:id="@+id/apellido"
                     android:layout_column="1"
                     android:background="@color/gris60"
                     android:autoText="false" />
@@ -131,9 +133,9 @@
                     android:layout_height="match_parent"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editText2"
+                    android:id="@+id/fijo"
                     android:layout_column="1"
-                    android:background="@color/gris60"/>
+                    android:background="@color/gris60" />
             </TableRow>
 
             <!--TELEFONO MOVIL-->
@@ -154,7 +156,7 @@
                     android:layout_height="match_parent"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editText3"
+                    android:id="@+id/movil"
                     android:layout_column="1"
                     android:background="@color/gris60"
                     android:autoText="false" />
@@ -179,7 +181,7 @@
                     android:layout_height="match_parent"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editText4"
+                    android:id="@+id/email"
                     android:layout_column="1"
                     android:background="@color/gris60"
                     android:autoText="false" />
@@ -204,7 +206,7 @@
                     android:layout_height="match_parent"
                     android:inputType="textMultiLine"
                     android:ems="10"
-                    android:id="@+id/editText5"
+                    android:id="@+id/direccion"
                     android:layout_column="1"
                     android:background="@color/gris60" />
 
@@ -240,7 +242,8 @@
                     android:padding="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="8dp"
-                    android:layout_marginBottom="8dp" />
+                    android:layout_marginBottom="8dp"
+                    android:onClick="agregarContacto" />
             </TableRow>
         </TableLayout>
 
