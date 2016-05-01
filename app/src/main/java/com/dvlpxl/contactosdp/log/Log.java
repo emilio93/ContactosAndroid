@@ -1,4 +1,4 @@
-package com.dvlpxl.contactos.log;
+package com.dvlpxl.contactosdp.log;
 
 import java.io.File;
 import java.text.SimpleDateFormat;

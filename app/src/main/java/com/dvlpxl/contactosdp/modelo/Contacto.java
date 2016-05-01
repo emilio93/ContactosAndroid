@@ -1,4 +1,4 @@
-package com.dvlpxl.contactos.modelo;
+package com.dvlpxl.contactosdp.modelo;
 
 import java.util.Map;
 

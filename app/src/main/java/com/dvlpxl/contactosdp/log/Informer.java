@@ -1,13 +1,15 @@
-package com.dvlpxl.contactos.log;
+package com.dvlpxl.contactosdp.log;
 
 import com.google.gson.Gson;
+
+import org.joda.time.LocalDate;
+import org.joda.time.LocalDateTime;
+import org.joda.time.LocalTime;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-import org.joda.time.LocalDate;
-import org.joda.time.LocalDateTime;
-import org.joda.time.LocalTime;
 
 public class Informer{
     public static final String basePath = "/home/emilio/logsVideoClub";

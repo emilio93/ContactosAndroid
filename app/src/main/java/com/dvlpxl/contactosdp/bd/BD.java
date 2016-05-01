@@ -1,4 +1,4 @@
-package com.dvlpxl.contactos.bd;
+package com.dvlpxl.contactosdp.bd;
 
 import android.database.sqlite.SQLiteDatabase;
 
@@ -80,7 +80,7 @@ public final class BD {
                     "    `id` INTEGER PRIMARY KEY," +
                     "    `idContacto` INTEGER INDEX," +
                     "    `tipo` TEXT," +
-                    "    `telefono` TEXT" +
+                    "    `telefono` TEXT UNIQUE" +
                     "    FOREIGN KEY (`idContacto`) REFERENCES contactos(`id`)" +
                     ");");
             appendMssg("Tabla telefonos creada. ");
@@ -91,7 +91,9 @@ public final class BD {
             appendError(e.getClass().getName() + "@BD.crearTablas(): " + e.getMessage());
         }
         return creadas;
-
     }
+
+
+
 }
 

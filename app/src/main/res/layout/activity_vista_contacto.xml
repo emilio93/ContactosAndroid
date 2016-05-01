@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:background="@color/gris70"
+    android:padding="0dp"
+    android:layout_margin="0dp"
+    tools:context="com.dvlpxl.contactosdp.app.CamposContacto"
+    android:weightSum="1"
+    android:gravity="center_horizontal">
+
+    <!--BARRA SUPERIOR-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="0dp"
+        android:layout_margin="0dp"
+        android:background="@color/gris80">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contacto"
+            android:textColor="@color/blanco"
+            android:textIsSelectable="false"
+            android:textSize="32sp"
+            android:layout_margin="8dp"
+            android:textStyle="bold"
+            android:id="@+id/titulo"
+            android:layout_gravity="center_horizontal|top" />
+    </FrameLayout>
+
+    <!--IMAGEN-->
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/imagenContacto"
+        android:background="@android:mipmap/sym_def_app_icon"
+        android:layout_gravity="center_horizontal" />
+
+
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center_horizontal"
+        android:nestedScrollingEnabled="true"
+        android:shrinkColumns="*">
+
+        <!--NOMBRE Y APELLIDO-->
+        <TableRow android:padding="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_gravity="center_horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blanco"
+                android:textIsSelectable="false"
+                android:textSize="20sp"
+                android:layout_margin="8dp"
+                android:layout_gravity="center"
+                android:text="Nombre"
+                android:layout_span="2" />
+        </TableRow>
+
+        <!--TELEFONO FIJO-->
+        <TableRow android:padding="4dp"
+            android:layout_marginRight="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blanco"
+                android:textIsSelectable="false"
+                android:textSize="20sp"
+                android:layout_margin="8dp"
+                android:layout_gravity="center"
+                android:text="Email"
+                android:layout_span="2" />
+        </TableRow>
+
+        <TableRow android:padding="4dp"
+            android:layout_marginRight="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blanco"
+                android:textIsSelectable="false"
+                android:textSize="20sp"
+                android:layout_margin="8dp"
+                android:layout_gravity="end|center_vertical"
+                android:text="Teléfono Fijo:"
+                android:layout_marginRight="4dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blanco"
+                android:textIsSelectable="false"
+                android:textSize="20sp"
+                android:layout_margin="8dp"
+                android:layout_gravity="left|center_vertical|end"
+                android:text="Teléfono Fijo"
+                android:layout_marginRight="4dp" />
+        </TableRow>
+
+        <!--TELEFONO MOVIL-->
+        <TableRow android:padding="4dp"
+            android:layout_marginRight="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blanco"
+                android:textIsSelectable="false"
+                android:textSize="20sp"
+                android:layout_margin="8dp"
+                android:layout_gravity="end|center_vertical"
+                android:text="Teléfono Movil:"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blanco"
+                android:textIsSelectable="false"
+                android:textSize="20sp"
+                android:layout_margin="8dp"
+                android:layout_gravity="left|center_vertical|end"
+                android:text="Teléfono Movil"/>
+        </TableRow>
+
+        <!-- EMAIL -->
+
+        <!--DIRECCION-->
+        <TableRow android:padding="4dp"
+            android:layout_marginRight="4dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blanco"
+                android:textIsSelectable="false"
+                android:textSize="20sp"
+                android:layout_margin="8dp"
+                android:layout_gravity="end|center_vertical"
+                android:text="Dirección:"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blanco"
+                android:textIsSelectable="false"
+                android:textSize="20sp"
+                android:layout_margin="8dp"
+                android:layout_gravity="left|center_vertical|end"
+                android:text="Dirección"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Editar"
+                android:id="@+id/btnEditar"
+                android:layout_column="0"
+                android:background="@color/warning"
+                android:textColor="@color/blanco"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Eliminar"
+                android:id="@+id/btnEliminar"
+                android:layout_column="1"
+                android:textColor="@color/blanco"
+                android:background="@color/error"
+                android:layout_marginLeft="4dp" />
+        </TableRow>
+
+    </TableLayout>
+
+</LinearLayout>
