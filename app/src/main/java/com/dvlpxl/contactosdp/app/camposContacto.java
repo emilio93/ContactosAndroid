@@ -67,8 +67,8 @@ public class CamposContacto extends Activity {
                     Toast.makeText(this, "Contacto Agregado", Toast.LENGTH_SHORT).show();
                 } else if (modo == 2) {
                     cbd.actualizarContacto(id, getTxt(R.id.nombre),
-                            getTxt(R.id.apellido), getTxt(R.id.fijo), getTxt(R.id.movil),
-                            getTxt(R.id.email), getTxt(R.id.direccion), "null");
+                            getTxt(R.id.apellido), getTxt(R.id.email), getTxt(R.id.fijo),
+                            getTxt(R.id.movil), getTxt(R.id.direccion), "null");
                     Toast.makeText(this, "Contacto Actualizado", Toast.LENGTH_SHORT).show();
                 }
 
